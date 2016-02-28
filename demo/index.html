@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="da" style="font-size: 100%">
+<head>
+	<title>fcoo.dk - fcoo-modernizr-mediaquery-device - Demo</title>
+	<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv='x-dns-prefetch-control' content='on'>
+
+	<meta name='copyright' content='FCOO'>
+	<meta name='owner' content='FCOO'>
+
+  <link  href="bower_components.css" rel="stylesheet">	
+  <link  href="../src/fcoo-modernizr-mediaquery-device.css" rel="stylesheet">	
+	<style>
+		.on { background-color: green; }
+		.off { background-color: red; }
+	</style>
+</head>
+
+<body>
+	<h1 style="width:100%; text-align:center">Modernizr - test installed</h1>
+		<table border=1 id="modernizrList" style="margin: 0 auto"></table>
+
+	
+	
+	<script src="bower_components.js"></script>
+	<script src="../src/fcoo-modernizr-mediaquery-device.js"></script>
+	<script src="../src/fcoo-modernizr.js"></script>
+
+	<script>
+		var configJson, metadataJson, $table = $('#modernizrList');
+		function createList(){
+			for (var i=0; i<configJson['feature-detects'].length; i++ ){
+				var feature = configJson['feature-detects'][i];
+
+				for (var j=0; j<metadataJson.length; j++ ){
+					var meta = metadataJson[j];
+					if (meta.amdPath == feature){
+						var isOn = $('html').hasClass(meta.cssclass);
+						$table.append('<tr class="' + (isOn ? 'on' : 'off') + '">'+
+							'<td>'+meta.name + '<br>' + feature + '<br>class-name: ' + meta.cssclass + '</td>' +
+							'<td>'+ (isOn  ? 'ON' : 'OFF') + '</td>' +
+						'</tr>');
+						break;
+						
+					}				
+				}
+				
+				
+							
+			}
+			
+
+
+
+		};
+		
+		$.getJSON('../src/modernizr-config.json', null,
+			function( data ){
+				configJson = data;
+				$.getJSON('../src/fcoo-modernizr-metadata.json', null,
+					function( data ){
+						metadataJson = data;
+						createList()
+					}
+				)
+			}
+		)
+
+	
+	
+	
+	</script>
+</body>
+</html>
