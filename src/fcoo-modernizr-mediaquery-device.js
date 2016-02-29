@@ -28,7 +28,7 @@
 		ns.modernizrMediaquery = new window.ModernizrMediaquery();
 
 		//For consistency: 'create' modernizr in window.fcoo
-		ns.modernizr = Modernizr;
+		ns.modernizr = window.Modernizr;
 
 
 

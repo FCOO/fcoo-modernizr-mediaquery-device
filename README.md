@@ -22,12 +22,18 @@ To edit this packages you need to install modernizr by running
 	npm install -g modernizr
 
 
+## Demo
+
+A full list of added [Modernizr] tests can be seen at 
+http://FCOO.github.io/fcoo-modernizr-mediaquery-device/demo/ 
+
+
 ## Installation
 ### bower
 `bower install https://github.com/FCOO/fcoo-modernizr-mediaquery-device.git --save`
 
 ## name-space `window.fcoo`
-The package create any JavaScript objects in the name space `window.fcoo`
+All JavaScript objects are create in the name space `window.fcoo`
 
 ## [modernizr-device]
 
@@ -42,11 +48,9 @@ Create a `ModernizrDevice`-object as
 Adds test for the following classes to `<html>`
  
 	desktop, mobile, phone, tablet, windows, ios, android, ie7, ie8, ie9, ie10, mobilegradea
- 
-The only tests included with `show-for-NAME`-classes is `ie8`: 
 
-	$modernizr-device-list: ie8
-
+#### `show-for-TEST`, `hide-for-TEST`
+To create classes to show or hide element when certain test succeed or fails (see [modernizr-scss](https://github.com/FCOO/modernizr-scss)) the test classes must be added to `$modernizr-device-list` in `src\fcoo-modernizr-mediaquery-device.scss` 
 
 
 ## [modernizr-mediaquery]
@@ -108,12 +112,12 @@ Then eash test in `feature-detects` will set a class to `<html>` to mark the res
 **Example:** The test *Event Listener* will detects native support for addEventListener and set the class `eventlistener` or `no-eventlistener` to `<html>`
 
 #### `show-for-TEST`, `hide-for-TEST`
-To create classes to show or hide element when certein test sussec or fails (see [modernizr-scss](https://github.com/FCOO/modernizr-scss)) the test classes must be added to `$modernizr-test-list` in `src\fcoo-modernizr-mediaquery-device.scss` 
+To create classes to show or hide element when certain test succeed or fails (see [modernizr-scss](https://github.com/FCOO/modernizr-scss)) the test classes must be added to `$modernizr-test-list` in `src\fcoo-modernizr-mediaquery-device.scss` 
 
 ### options
 
 See [Modernizr API](https://modernizr.com/docs/#modernizr-api) for description of the different methods.
-The following methods must allways be included:
+The following methods must always be included:
 
 	Modernizr.addTest()
 	Modernizr.atRule()
@@ -122,15 +126,16 @@ The following methods must allways be included:
 
 `html5printshiv` and `html5shiv` are polyfills for browsers not supporting HTML5  
 
-NOTE: The option `minify` **MUST** be set to **`false`**
-NOTE: The option `Add CSS Classes` **MUST** be set to **`true`**
+#### NOTE
+The option `minify` **MUST** be set to **`false`**
+The option `Add CSS Classes` **MUST** be set to **`true`**
 
 ### feature-detects
 See [Modernizr - Features detected by Modernizr](https://modernizr.com/docs#features) for a complete list of possible tests
 
 See complete meta-data file at http://FCOO.github.io/modernizr-mediaquery/src/fcoo-modernizr-metadata.json
  
-
+A full list of added tests can be seen at [the demo page](http://FCOO.github.io/fcoo-modernizr-mediaquery-device/demo/)
 
 
 

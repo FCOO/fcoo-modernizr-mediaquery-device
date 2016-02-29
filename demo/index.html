@@ -36,7 +36,7 @@
 				for (var j=0; j<metadataJson.length; j++ ){
 					var meta = metadataJson[j];
 					if (meta.amdPath == feature){
-						var isOn = $('html').hasClass(meta.cssclass);
+						var isOn = fcoo.modernizr[meta.cssclass];
 						$table.append('<tr class="' + (isOn ? 'on' : 'off') + '">'+
 							'<td>'+meta.name + '<br>' + feature + '<br>class-name: ' + meta.cssclass + '</td>' +
 							'<td>'+ (isOn  ? 'ON' : 'OFF') + '</td>' +
