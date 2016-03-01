@@ -1,0 +1,16 @@
+/*
+
+show-for-TAGS where TAGS are the tags in src/fcoo-modernizr-metadata.json
+
+*/
+
+//MODERNIZR-SASS - http://github.com/FCOO/modernizr-scss
+@import "../bower_components/modernizr-scss/dist/modernizr-scss";
+
+
+$tags-list : 
+"other", "storage", "offline", "html5", "audio", "media", "device", "canvas", "graphics", "crypto", "customevent", "image", "flash", "history", "overlay", "html", "import", "forms", "input", "search", "performance", "events", "proximity", "queryselector", "animation", "svg", "attribute", "js", "encoding", "vml", "webanimations", "webgl", "cors", "xdomainrequest", "ie9", "ie8", "hardware", "mobile", "css", "cssom", "flexbox", "dom", "elem", "es5", "es6", "event", "file", "video", "localization", "form", "requestAutocomplete", "payments", "validation", "iframe", "beacon", "network", "script", "speech", "url", "webrtc", "websockets", "atob", "base64", "WindowBase64", "btoa", "window", "matchmedia", "workers";
+
+@each $tag in $tags-list {
+	@include show-and-hide-for-modernizr-test( 'list-' + $tag, html, false );
+}

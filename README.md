@@ -27,6 +27,8 @@ To edit this packages you need to install modernizr by running
 A full list of added [Modernizr] tests can be seen at 
 http://FCOO.github.io/fcoo-modernizr-mediaquery-device/demo/ 
 
+A full list of **available** [Modernizr] tests can be seen at 
+http://FCOO.github.io/fcoo-modernizr-mediaquery-device/demo/list.html
 
 ## Installation
 ### bower
@@ -135,7 +137,10 @@ See [Modernizr - Features detected by Modernizr](https://modernizr.com/docs#feat
 
 See complete meta-data file at http://FCOO.github.io/modernizr-mediaquery/src/fcoo-modernizr-metadata.json
  
-A full list of added tests can be seen at [the demo page](http://FCOO.github.io/fcoo-modernizr-mediaquery-device/demo/)
+A full list of added [Modernizr] tests can be seen at [the demo page](http://FCOO.github.io/fcoo-modernizr-mediaquery-device/demo/)
+
+A full list of **available** [Modernizr] tests can be seen [here](http://FCOO.github.io/fcoo-modernizr-mediaquery-device/demo/list.html)
+
 
 
 
