@@ -31,7 +31,6 @@
 		ns.modernizr = window.Modernizr;
 
 
-
 	}); //End of initialize/ready
 	//******************************************
 

@@ -14,10 +14,17 @@
   <link href="list.css" rel="stylesheet">	
 	<style>
 		body { font-family: arial; }
-
+		td {
+			padding				: 4px;
+			vertical-align: top;
+		}
 		td:first-child, th {
 			white-space:nowrap;
 		}
+		p {	padding: 0; margin: 0; }
+				
+		.on { background-color: green; }
+		.off { background-color: red; }
 	</style>
 </head>
 
@@ -38,68 +45,67 @@
 	
 	<script src="bower_components.js"></script>
 	<script src="../src/fcoo-modernizr-mediaquery-device.js"></script>
-	<script src="../src/fcoo-modernizr.js"></script>
+	<script src="modernizr-custom.js"></script>
 
 	<script>
-		var tagsList = ['other'];
+		$(function() { //"$( function() { ... });" is short for "$(document).ready( function(){...});"
 
-		
-		function onChange(){
-			var selectedTag = this.options[this.selectedIndex].value,
-					$html = $('html');
-			for (var i=0; i<tagsList.length; i++ ){
-				var tags = tagsList[i];
-				if ( (selectedTag == 'ALL') || (selectedTag == tags) ){
-				  $html.addClass('list-'+tags+'-list').removeClass('no-list-'+tags);
+			var tagsList = ['other'];
+			function onChange(){
+				var selectedTag = this.options[this.selectedIndex].value,
+						$html = $('html');
+				for (var i=0; i<tagsList.length; i++ ){
+					var tags = tagsList[i];
+					if ( (selectedTag == 'ALL') || (selectedTag == tags) ){
+					  $html.addClass('list-'+tags+'-list').removeClass('no-list-'+tags);
+					}
+					else {
+					  $html.removeClass('list-'+tags).addClass('no-list-'+tags);
+					}
 				}
-				else {
-				  $html.removeClass('list-'+tags).addClass('no-list-'+tags);
+			}
+
+			var metadataJson, $table = $('#modernizrList');
+			function createList(){
+				for (var i=0; i<metadataJson.length; i++ ){
+					var meta = metadataJson[i];
+					for (var j=0; j<meta.tags.length; j++ )
+						if (tagsList.indexOf( meta.tags[j] ) < 0 )
+							tagsList.push( meta.tags[j] );
 				}
-			}
 
-		}
-
-
-		var metadataJson, $table = $('#modernizrList');
-		function createList(){
-			for (var i=0; i<metadataJson.length; i++ ){
-				var meta = metadataJson[i];
-				for (var j=0; j<meta.tags.length; j++ )
-					if (tagsList.indexOf( meta.tags[j] ) < 0 )
-						tagsList.push( meta.tags[j] );
-			}
-
-			tagsList.sort();
-			var $select = $('#modernizrSelect');
-			$select.on('change', onChange );
-			for (var i=0; i<tagsList.length; i++ ){
-				$('<option value="'+tagsList[i]+'">' +tagsList[i]+ '</option>').appendTo($select);
-			}
+				tagsList.sort();
+				var $select = $('#modernizrSelect');
+				$select.on('change', onChange );
+				for (var i=0; i<tagsList.length; i++ ){
+					$('<option value="'+tagsList[i]+'">' +tagsList[i]+ '</option>').appendTo($select);
+				}
 			
+			  $('html').addClass('ALL');
 
-	  $('html').addClass('ALL');
+				for (var i=0; i<metadataJson.length; i++ ){
+					var meta = metadataJson[i],
+							tags = meta.tags || ['other'],
+							isOn = fcoo.modernizr[meta.cssclass];
 
-			for (var i=0; i<metadataJson.length; i++ ){
-				var meta = metadataJson[i],
-						tags = meta.tags || ['other'];
-
-			  for (var j=0; j<tags.length; j++ ){
-					var tr = $('<tr></tr>').appendTo($table);
-					tr.addClass('show-for-list-'+ tags[j]);
-					tr.append('<td>'+meta.name + '<br><code>' + meta.cssclass + '</code></td>');
-					tr.append('<td>' + (meta.doc || '&nbsp;')+ '</td>');
+				  for (var j=0; j<tags.length; j++ ){
+						var tr = $('<tr></tr>').appendTo($table);
+						tr.addClass('show-for-list-'+ tags[j]);
+						tr.addClass(isOn ? 'on' : 'off');
+						tr.append('<td>'+meta.name + '<br><code>' + meta.cssclass + '</code></td>');
+						tr.append('<td>' + (meta.doc || '&nbsp;')+ '</td>');
+					}
 				}
-			}
 
-		};
+			};
 		
-		$.getJSON('../src/fcoo-modernizr-metadata.json', null,
-			function( data ){
-				metadataJson = data;
-				createList()
-			}
-		)
-
+			$.getJSON('../src/fcoo-modernizr-metadata.json', null,
+				function( data ){
+					metadataJson = data;
+					createList()
+				}
+			)
+		});
 	
 	
 	
