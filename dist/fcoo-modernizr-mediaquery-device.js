@@ -36,7 +36,9 @@
 
 
 
-}(jQuery, this, document));;/*!
+}(jQuery, this, document));
+;
+/*!
  * modernizr v3.3.1
  * Build http://modernizr.com/download?-csscalc-csschunit-csspointerevents-cssremunit-cssvhunit-cssvmaxunit-cssvminunit-cssvwunit-flexbox-flexboxlegacy-flexboxtweener-flexwrap-fullscreen-localizednumber-localstorage-matchmedia-sessionstorage-touchevents-vibrate-xdomainrequest-addtest-atrule-hasevent-mq-prefixed-setclasses-dontmin
  *

@@ -1,14 +1,14 @@
 {
   "name": "fcoo-modernizr-mediaquery-device",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "homepage": "https://github.com/FCOO/fcoo-modernizr-mediaquery-device",
   "authors": [
     "Niels Holt nho@fcoo.dk"
   ],
   "description": "",
   "main": [
-    "dist/fcoo-modernizr-mediaquery-device.min.js",
-    "dist/fcoo-modernizr-mediaquery-device.min.css"
+    "dist/fcoo-modernizr-mediaquery-device.js",
+    "dist/fcoo-modernizr-mediaquery-device.css"
   ],
   "repository": {
     "type": "git",
