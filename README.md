@@ -69,7 +69,6 @@ Create a `ModernizrMediaquery`-object as
 | Variable | Default | New value | Description |
 | :--: | :--: | :--: | :--- |
 |<code>$html-font-size</code>| 16px | | 
-|<code>$create-FOR-NO</code>| true | **false** | When true the display-classes for show-for-no-NAME / hide-for-no-NAME is also created. show-for-NAME and hide-for-NAME is always created 
 |<code>$create-FIRST-up</code>| false |  | When true the media query FIRST-up (always display) and no-FIRST-up (allways hidden) are created
 |<code>$create-LAST-down</code>| false |  | When true the media query LAST-down (always display) and no-LAST-down (allways hidden) are created
 
@@ -104,17 +103,21 @@ To modify the options or features included you need to
 	- Press the `BUILD` button and `download` the `Command Line Config` into `\src\modernizr-config.json`  
 
 At [Modernizr Download](https://modernizr.com/download) and in `\src\modernizr-config.json` the settings are divided in *options* and *feature-detects* where 
-**options** defines witch JavaScript methode are included. See [Modernizr API](https://modernizr.com/docs/#modernizr-api) for details.
+**options** defines witch JavaScript methods are included. See [Modernizr API](https://modernizr.com/docs/#modernizr-api) for details.
 **feature-detects** defines witch *browser feature* Modernizr will test for. 
 
 ### CSS Classes
 The option *Add CSS Classes* at [Modernizr Download](https://modernizr.com/download)) must be selected or `options: [..]` must include `"setClasses"`. 
-Then eash test in `feature-detects` will set a class to `<html>` to mark the result of the test: `<html class="TEST">` or `<html class="no-TEST">`
+Then each test in `feature-detects` will set a class to `<html>` to mark the result of the test: `<html class="TEST">` or `<html class="no-TEST">`
 
 **Example:** The test *Event Listener* will detects native support for addEventListener and set the class `eventlistener` or `no-eventlistener` to `<html>`
 
 #### `show-for-TEST`, `hide-for-TEST`
 To create classes to show or hide element when certain test succeed or fails (see [modernizr-scss](https://github.com/FCOO/modernizr-scss)) the test classes must be added to `$modernizr-test-list` in `src\fcoo-modernizr-mediaquery-device.scss` 
+
+Adds `show-for-TEST` and `hide-for-TEST` the following [Modernizr] tests (`TEST`) 
+ 
+	fullscreen, localstorage, sessionstorage
 
 ### options
 
