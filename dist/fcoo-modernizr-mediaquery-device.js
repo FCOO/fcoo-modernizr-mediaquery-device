@@ -1,46 +1,49 @@
 /****************************************************************************
-	fcoo-modernizr-mediaquery-device.js,
+    fcoo-modernizr-mediaquery-device.js,
 
-	(c) 2016, FCOO
+    (c) 2016, FCOO
 
-	https://github.com/FCOO/fcoo-modernizr-mediaquery-device
-	https://github.com/FCOO
+    https://github.com/FCOO/fcoo-modernizr-mediaquery-device
+    https://github.com/FCOO
 
 ****************************************************************************/
 
-;(function ($, window, document, undefined) {
-	"use strict";
+(function (Modernizr, $, window/*, document, undefined*/) {
+    "use strict";
 
-	//Create fcoo-namespace
-	window.fcoo = window.fcoo || {};
-	var ns = window.fcoo;
-
-
-	/******************************************
-	Initialize/ready
-	*******************************************/
-	$(function() { //"$( function() { ... });" is short for "$(document).ready( function(){...});"
-
-		//Create fcoo.modernizrDevice
-		ns.modernizrDevice = new window.ModernizrDevice();
-
-		//Create fcoo.modernizrMediaquery
-		ns.modernizrMediaquery = new window.ModernizrMediaquery();
-
-		//For consistency: 'create' modernizr in window.fcoo
-		ns.modernizr = window.Modernizr;
+    //Create fcoo-namespace
+    window.fcoo = window.fcoo || {};
+    var ns = window.fcoo;
 
 
-	}); //End of initialize/ready
-	//******************************************
+    /******************************************
+    Initialize/ready
+    *******************************************/
+    $(function() { 
+
+        //Create fcoo.modernizrDevice
+        ns.modernizrDevice = new window.ModernizrDevice();
+
+        //Create fcoo.modernizrMediaquery
+        ns.modernizrMediaquery = new window.ModernizrMediaquery();
+
+        //For consistency: 'create' modernizr in window.fcoo
+        ns.modernizr = Modernizr;
+
+        //Add https-test
+        ns.modernizr.addTest('https', window.location.protocol == 'https:');
+
+
+    }); //End of initialize/ready
+    //******************************************
 
 
 
-}(jQuery, this, document));
+}(window.Modernizr, jQuery, this, document));
 ;
 /*!
  * modernizr v3.3.1
- * Build http://modernizr.com/download?-csscalc-csschunit-csspointerevents-cssremunit-cssvhunit-cssvmaxunit-cssvminunit-cssvwunit-flexbox-flexboxlegacy-flexboxtweener-flexwrap-fullscreen-localizednumber-localstorage-matchmedia-sessionstorage-touchevents-vibrate-xdomainrequest-addtest-atrule-hasevent-mq-prefixed-setclasses-dontmin
+ * Build http://modernizr.com/download?-csschunit-csspointerevents-cssremunit-flexbox-flexboxlegacy-flexboxtweener-flexwrap-fullscreen-touchevents-addtest-atrule-hasevent-mq-prefixed-setclasses-dontmin
  *
  * Copyright (c)
  *  Faruk Ates
@@ -1464,78 +1467,6 @@ This test will also return `true` for Firefox 4 Multitouch support.
 
 /*!
 {
-  "name": "Vibration API",
-  "property": "vibrate",
-  "notes": [{
-    "name": "MDN documentation",
-    "href": "https://developer.mozilla.org/en/DOM/window.navigator.mozVibrate"
-  },{
-    "name": "W3C spec",
-    "href": "https://www.w3.org/TR/vibration/"
-  }]
-}
-!*/
-/* DOC
-Detects support for the API that provides access to the vibration mechanism of the hosting device, to provide tactile feedback.
-*/
-
-  Modernizr.addTest('vibrate', !!prefixed('vibrate', navigator));
-
-/*!
-{
-  "name": "XDomainRequest",
-  "property": "xdomainrequest",
-  "tags": ["cors", "xdomainrequest", "ie9", "ie8"],
-  "authors": ["Ivan Pan (@hypotenuse)"],
-  "notes": [
-  {
-    "name": "MDN documentation",
-    "href": "https://developer.mozilla.org/en-US/docs/Web/API/XDomainRequest"
-  },
-  {
-    "name": "MSDN documentation",
-    "href": "https://msdn.microsoft.com/library/ie/cc288060.aspx/"
-  }]
-}
-!*/
-/* DOC
-Detects support for XDomainRequest in IE9 & IE8
-*/
-
-  Modernizr.addTest('xdomainrequest', 'XDomainRequest' in window);
-
-/*!
-{
-  "name": "CSS Calc",
-  "property": "csscalc",
-  "caniuse": "calc",
-  "tags": ["css"],
-  "builderAliases": ["css_calc"],
-  "authors": ["@calvein"]
-}
-!*/
-/* DOC
-Method of allowing calculated values for length units. For example:
-
-```css
-//lem {
-  width: calc(100% - 3em);
-}
-```
-*/
-
-  Modernizr.addTest('csscalc', function() {
-    var prop = 'width:';
-    var value = 'calc(10px);';
-    var el = createElement('a');
-
-    el.style.cssText = prop + prefixes.join(value + prop);
-
-    return !!el.style.length;
-  });
-
-/*!
-{
   "name": "CSS Font ch Units",
   "authors": ["Ron Waldon (@jokeyrhyme)"],
   "property": "csschunit",
@@ -1748,470 +1679,6 @@ else {
     catch (e) {}
     return (/rem/).test(style.fontSize);
   });
-
-/*!
-{
-  "name": "CSS vh unit",
-  "property": "cssvhunit",
-  "caniuse": "viewport-units",
-  "tags": ["css"],
-  "builderAliases": ["css_vhunit"],
-  "notes": [{
-    "name": "Related Modernizr Issue",
-    "href": "https://github.com/Modernizr/Modernizr/issues/572"
-  },{
-    "name": "Similar JSFiddle",
-    "href": "https://jsfiddle.net/FWeinb/etnYC/"
-  }]
-}
-!*/
-
-  testStyles('#modernizr { height: 50vh; }', function(elem) {
-    var height = parseInt(window.innerHeight / 2, 10);
-    var compStyle = parseInt((window.getComputedStyle ?
-                              getComputedStyle(elem, null) :
-                              elem.currentStyle).height, 10);
-    Modernizr.addTest('cssvhunit', compStyle == height);
-  });
-
-
-  /**
-   * roundedEquals takes two integers and checks if the first is within 1 of the second
-   *
-   * @access private
-   * @function roundedEquals
-   * @param {number} a
-   * @param {number} b
-   * @returns {boolean}
-   */
-
-  function roundedEquals(a, b) {
-    return a - 1 === b || a === b || a + 1 === b;
-  }
-
-  ;
-/*!
-{
-  "name": "CSS vmax unit",
-  "property": "cssvmaxunit",
-  "caniuse": "viewport-units",
-  "tags": ["css"],
-  "builderAliases": ["css_vmaxunit"],
-  "notes": [{
-    "name": "Related Modernizr Issue",
-    "href": "https://github.com/Modernizr/Modernizr/issues/572"
-  },{
-    "name": "JSFiddle Example",
-    "href": "https://jsfiddle.net/glsee/JDsWQ/4/"
-  }]
-}
-!*/
-
-  testStyles('#modernizr1{width: 50vmax}#modernizr2{width:50px;height:50px;overflow:scroll}#modernizr3{position:fixed;top:0;left:0;bottom:0;right:0}', function(node) {
-    var elem = node.childNodes[2];
-    var scroller = node.childNodes[1];
-    var fullSizeElem = node.childNodes[0];
-    var scrollbarWidth = parseInt((scroller.offsetWidth - scroller.clientWidth) / 2, 10);
-
-    var one_vw = fullSizeElem.clientWidth / 100;
-    var one_vh = fullSizeElem.clientHeight / 100;
-    var expectedWidth = parseInt(Math.max(one_vw, one_vh) * 50, 10);
-    var compWidth = parseInt((window.getComputedStyle ?
-                          getComputedStyle(elem, null) :
-                          elem.currentStyle).width, 10);
-
-    Modernizr.addTest('cssvmaxunit', roundedEquals(expectedWidth, compWidth) || roundedEquals(expectedWidth, compWidth - scrollbarWidth));
-  }, 3);
-
-/*!
-{
-  "name": "CSS vmin unit",
-  "property": "cssvminunit",
-  "caniuse": "viewport-units",
-  "tags": ["css"],
-  "builderAliases": ["css_vminunit"],
-  "notes": [{
-    "name": "Related Modernizr Issue",
-    "href": "https://github.com/Modernizr/Modernizr/issues/572"
-  },{
-    "name": "JSFiddle Example",
-    "href": "https://jsfiddle.net/glsee/JRmdq/8/"
-  }]
-}
-!*/
-
-  testStyles('#modernizr1{width: 50vm;width:50vmin}#modernizr2{width:50px;height:50px;overflow:scroll}#modernizr3{position:fixed;top:0;left:0;bottom:0;right:0}', function(node) {
-    var elem = node.childNodes[2];
-    var scroller = node.childNodes[1];
-    var fullSizeElem = node.childNodes[0];
-    var scrollbarWidth = parseInt((scroller.offsetWidth - scroller.clientWidth) / 2, 10);
-
-    var one_vw = fullSizeElem.clientWidth / 100;
-    var one_vh = fullSizeElem.clientHeight / 100;
-    var expectedWidth = parseInt(Math.min(one_vw, one_vh) * 50, 10);
-    var compWidth = parseInt((window.getComputedStyle ?
-                          getComputedStyle(elem, null) :
-                          elem.currentStyle).width, 10);
-
-    Modernizr.addTest('cssvminunit', roundedEquals(expectedWidth, compWidth) || roundedEquals(expectedWidth, compWidth - scrollbarWidth));
-  }, 3);
-
-/*!
-{
-  "name": "CSS vw unit",
-  "property": "cssvwunit",
-  "caniuse": "viewport-units",
-  "tags": ["css"],
-  "builderAliases": ["css_vwunit"],
-  "notes": [{
-    "name": "Related Modernizr Issue",
-    "href": "https://github.com/Modernizr/Modernizr/issues/572"
-  },{
-    "name": "JSFiddle Example",
-    "href": "https://jsfiddle.net/FWeinb/etnYC/"
-  }]
-}
-!*/
-
-  testStyles('#modernizr { width: 50vw; }', function(elem) {
-    var width = parseInt(window.innerWidth / 2, 10);
-    var compStyle = parseInt((window.getComputedStyle ?
-                              getComputedStyle(elem, null) :
-                              elem.currentStyle).width, 10);
-
-    Modernizr.addTest('cssvwunit', compStyle == width);
-  });
-
-
-  /**
-   * since we have a fairly large number of input tests that don't mutate the input
-   * we create a single element that can be shared with all of those tests for a
-   * minor perf boost
-   *
-   * @access private
-   * @returns {HTMLInputElement}
-   */
-  var inputElem = createElement('input');
-  
-/*!
-{
-  "name": "Form input types",
-  "property": "inputtypes",
-  "caniuse": "forms",
-  "tags": ["forms"],
-  "authors": ["Mike Taylor"],
-  "polyfills": [
-    "jquerytools",
-    "webshims",
-    "h5f",
-    "webforms2",
-    "nwxforms",
-    "fdslider",
-    "html5slider",
-    "galleryhtml5forms",
-    "jscolor",
-    "html5formshim",
-    "selectedoptionsjs",
-    "formvalidationjs"
-  ]
-}
-!*/
-/* DOC
-Detects support for HTML5 form input types and exposes Boolean subproperties with the results:
-
-```javascript
-Modernizr.inputtypes.color
-Modernizr.inputtypes.date
-Modernizr.inputtypes.datetime
-Modernizr.inputtypes['datetime-local']
-Modernizr.inputtypes.email
-Modernizr.inputtypes.month
-Modernizr.inputtypes.number
-Modernizr.inputtypes.range
-Modernizr.inputtypes.search
-Modernizr.inputtypes.tel
-Modernizr.inputtypes.time
-Modernizr.inputtypes.url
-Modernizr.inputtypes.week
-```
-*/
-
-  // Run through HTML5's new input types to see if the UA understands any.
-  //   This is put behind the tests runloop because it doesn't return a
-  //   true/false like all the other tests; instead, it returns an object
-  //   containing each input type with its corresponding true/false value
-
-  // Big thanks to @miketaylr for the html5 forms expertise. miketaylr.com/
-  var inputtypes = 'search tel url email datetime date month week time datetime-local number range color'.split(' ');
-  var inputs = {};
-
-  Modernizr.inputtypes = (function(props) {
-    var len = props.length;
-    var smile = '1)';
-    var inputElemType;
-    var defaultView;
-    var bool;
-
-    for (var i = 0; i < len; i++) {
-
-      inputElem.setAttribute('type', inputElemType = props[i]);
-      bool = inputElem.type !== 'text' && 'style' in inputElem;
-
-      // We first check to see if the type we give it sticks..
-      // If the type does, we feed it a textual value, which shouldn't be valid.
-      // If the value doesn't stick, we know there's input sanitization which infers a custom UI
-      if (bool) {
-
-        inputElem.value         = smile;
-        inputElem.style.cssText = 'position:absolute;visibility:hidden;';
-
-        if (/^range$/.test(inputElemType) && inputElem.style.WebkitAppearance !== undefined) {
-
-          docElement.appendChild(inputElem);
-          defaultView = document.defaultView;
-
-          // Safari 2-4 allows the smiley as a value, despite making a slider
-          bool =  defaultView.getComputedStyle &&
-            defaultView.getComputedStyle(inputElem, null).WebkitAppearance !== 'textfield' &&
-            // Mobile android web browser has false positive, so must
-            // check the height to see if the widget is actually there.
-            (inputElem.offsetHeight !== 0);
-
-          docElement.removeChild(inputElem);
-
-        } else if (/^(search|tel)$/.test(inputElemType)) {
-          // Spec doesn't define any special parsing or detectable UI
-          //   behaviors so we pass these through as true
-
-          // Interestingly, opera fails the earlier test, so it doesn't
-          //  even make it here.
-
-        } else if (/^(url|email)$/.test(inputElemType)) {
-          // Real url and email support comes with prebaked validation.
-          bool = inputElem.checkValidity && inputElem.checkValidity() === false;
-
-        } else {
-          // If the upgraded input compontent rejects the :) text, we got a winner
-          bool = inputElem.value != smile;
-        }
-      }
-
-      inputs[ props[i] ] = !!bool;
-    }
-    return inputs;
-  })(inputtypes);
-
-/*!
-{
-  "name": "Form Validation",
-  "property": "formvalidation",
-  "tags": ["forms", "validation", "attribute"],
-  "builderAliases": ["forms_validation"]
-}
-!*/
-/* DOC
-This implementation only tests support for interactive form validation.
-To check validation for a specific type or a specific other constraint,
-the test can be combined:
-
-- `Modernizr.inputtypes.number && Modernizr.formvalidation` (browser supports rangeOverflow, typeMismatch etc. for type=number)
-- `Modernizr.input.required && Modernizr.formvalidation` (browser supports valueMissing)
-*/
-
-  Modernizr.addTest('formvalidation', function() {
-    var form = createElement('form');
-    if (!('checkValidity' in form) || !('addEventListener' in form)) {
-      return false;
-    }
-    if ('reportValidity' in form) {
-      return true;
-    }
-    var invalidFired = false;
-    var input;
-
-    Modernizr.formvalidationapi =  true;
-
-    // Prevent form from being submitted
-    form.addEventListener('submit', function(e) {
-      // Old Presto based Opera does not validate form, if submit is prevented
-      // although Opera Mini servers use newer Presto.
-      if (!window.opera || window.operamini) {
-        e.preventDefault();
-      }
-      e.stopPropagation();
-    }, false);
-
-    // Calling form.submit() doesn't trigger interactive validation,
-    // use a submit button instead
-    //older opera browsers need a name attribute
-    form.innerHTML = '<input name="modTest" required="required" /><button></button>';
-
-    testStyles('#modernizr form{position:absolute;top:-99999em}', function(node) {
-      node.appendChild(form);
-
-      input = form.getElementsByTagName('input')[0];
-
-      // Record whether "invalid" event is fired
-      input.addEventListener('invalid', function(e) {
-        invalidFired = true;
-        e.preventDefault();
-        e.stopPropagation();
-      }, false);
-
-      //Opera does not fully support the validationMessage property
-      Modernizr.formvalidationmessage = !!input.validationMessage;
-
-      // Submit form by clicking submit button
-      form.getElementsByTagName('button')[0].click();
-    });
-
-    return invalidFired;
-  });
-
-/*!
-{
-  "name": "input[type=\"number\"] Localization",
-  "property": "localizednumber",
-  "tags": ["forms", "localization", "attribute"],
-  "authors": ["Peter Janes"],
-  "notes": [{
-    "name": "Webkit Bug Tracker Listing",
-    "href": "https://bugs.webkit.org/show_bug.cgi?id=42484"
-  },{
-    "name": "Based on This",
-    "href": "https://trac.webkit.org/browser/trunk/LayoutTests/fast/forms/script-tests/input-number-keyoperation.js?rev=80096#L9"
-  }],
-  "knownBugs": ["Only ever returns true if the browser/OS is configured to use comma as a decimal separator. This is probably fine for most use cases."]
-}
-!*/
-/* DOC
-Detects whether input type="number" is capable of receiving and displaying localized numbers, e.g. with comma separator.
-*/
-
-  Modernizr.addTest('localizednumber', function() {
-    // this extends our testing of input[type=number], so bomb out if that's missing
-    if (!Modernizr.inputtypes.number) { return false; }
-    // we rely on checkValidity later, so bomb out early if we don't have it
-    if (!Modernizr.formvalidation) { return false; }
-
-    var el = createElement('div');
-    var diff;
-    var body = getBody();
-
-    var root = (function() {
-      return docElement.insertBefore(body, docElement.firstElementChild || docElement.firstChild);
-    }());
-    el.innerHTML = '<input type="number" value="1.0" step="0.1"/>';
-    var input = el.childNodes[0];
-    root.appendChild(el);
-    input.focus();
-    try {
-      document.execCommand('InsertText', false, '1,1');
-    } catch (e) { // prevent warnings in IE
-    }
-    diff = input.type === 'number' && input.valueAsNumber === 1.1 && input.checkValidity();
-    root.removeChild(el);
-    body.fake && root.parentNode.removeChild(root);
-    return diff;
-  });
-
-
-/*!
-{
-  "name": "Local Storage",
-  "property": "localstorage",
-  "caniuse": "namevalue-storage",
-  "tags": ["storage"],
-  "knownBugs": [],
-  "notes": [],
-  "warnings": [],
-  "polyfills": [
-    "joshuabell-polyfill",
-    "cupcake",
-    "storagepolyfill",
-    "amplifyjs",
-    "yui-cacheoffline"
-  ]
-}
-!*/
-
-  // In FF4, if disabled, window.localStorage should === null.
-
-  // Normally, we could not test that directly and need to do a
-  //   `('localStorage' in window) && ` test first because otherwise Firefox will
-  //   throw bugzil.la/365772 if cookies are disabled
-
-  // Also in iOS5 Private Browsing mode, attempting to use localStorage.setItem
-  // will throw the exception:
-  //   QUOTA_EXCEEDED_ERROR DOM Exception 22.
-  // Peculiarly, getItem and removeItem calls do not throw.
-
-  // Because we are forced to try/catch this, we'll go aggressive.
-
-  // Just FWIW: IE8 Compat mode supports these features completely:
-  //   www.quirksmode.org/dom/html5.html
-  // But IE8 doesn't support either with local files
-
-  Modernizr.addTest('localstorage', function() {
-    var mod = 'modernizr';
-    try {
-      localStorage.setItem(mod, mod);
-      localStorage.removeItem(mod);
-      return true;
-    } catch (e) {
-      return false;
-    }
-  });
-
-/*!
-{
-  "name": "Session Storage",
-  "property": "sessionstorage",
-  "tags": ["storage"],
-  "polyfills": ["joshuabell-polyfill", "cupcake", "sessionstorage"]
-}
-!*/
-
-  // Because we are forced to try/catch this, we'll go aggressive.
-
-  // Just FWIW: IE8 Compat mode supports these features completely:
-  //   www.quirksmode.org/dom/html5.html
-  // But IE8 doesn't support either with local files
-  Modernizr.addTest('sessionstorage', function() {
-    var mod = 'modernizr';
-    try {
-      sessionStorage.setItem(mod, mod);
-      sessionStorage.removeItem(mod);
-      return true;
-    } catch (e) {
-      return false;
-    }
-  });
-
-/*!
-{
-  "name": "matchMedia",
-  "property": "matchmedia",
-  "caniuse" : "matchmedia",
-  "tags": ["matchmedia"],
-  "authors": ["Alberto Elias"],
-  "notes": [{
-    "name": "W3C CSSOM View Module",
-    "href": "https://drafts.csswg.org/cssom-view/#the-mediaquerylist-interface"
-  }, {
-    "name": "MDN documentation",
-    "href": "https://developer.mozilla.org/en-US/docs/Web/API/Window.matchMedia"
-  }],
-  "polyfills": ["matchmediajs"]
-}
-!*/
-/* DOC
-
-Detects support for matchMedia.
-
-*/
-
-  Modernizr.addTest('matchmedia', !!prefixed('matchMedia', window));
 
 
   // Run each test

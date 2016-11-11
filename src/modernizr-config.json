@@ -11,23 +11,12 @@
   "feature-detects": [
     "test/fullscreen-api",
     "test/touchevents",
-    "test/vibration",
-    "test/xdomainrequest",
-    "test/css/calc",
     "test/css/chunit",
     "test/css/flexbox",
     "test/css/flexboxlegacy",
     "test/css/flexboxtweener",
     "test/css/flexwrap",
     "test/css/pointerevents",
-    "test/css/remunit",
-    "test/css/vhunit",
-    "test/css/vmaxunit",
-    "test/css/vminunit",
-    "test/css/vwunit",
-    "test/forms/inputnumber-l10n",
-    "test/storage/localstorage",
-    "test/storage/sessionstorage",
-    "test/window/matchmedia"
+    "test/css/remunit"
   ]
 }

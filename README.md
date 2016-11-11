@@ -46,10 +46,11 @@ Create a `ModernizrDevice`-object as
 	window.fcoo.modernizrDevice = new window.ModernizrDevice();
 
 ### device-tests
+The following tests are available `desktop, mobile, phone, tablet, windows, ios, android, ie7, ie8, ie9, ie10, ie11, mobilegradea`
 
-Adds test for the following classes to `<html>`
+But only the following test gets added classes to `<html>`
  
-	desktop, mobile, phone, tablet, windows, ios, android, ie7, ie8, ie9, ie10, mobilegradea
+	ie9, ie10, ie11
 
 #### `show-for-TEST`, `hide-for-TEST`
 To create classes to show or hide element when certain test succeed or fails (see [modernizr-scss](https://github.com/FCOO/modernizr-scss)) the test classes must be added to `$modernizr-device-list` in `src\fcoo-modernizr-mediaquery-device.scss` 
@@ -88,12 +89,26 @@ Sets the breakpoints as:
 
 ## Modernizr
 
+### Create
 The [Modernizr] JavaScript file for this package is created when running one of the following grunt-commands:
 
 	>grunt dev 
 	>grunt prod
-	>grunt github
+	>grunt push
 
+### Tests
+The following Modernizr tests are included
+
+    fullscreen-api
+    touchevents
+    chunit
+    flexbox
+    flexboxlegacy
+    flexboxtweener
+    flexwrap
+    pointerevents
+    remuni
+         
 To modify the options or features included you need to 
 
 
@@ -117,7 +132,7 @@ To create classes to show or hide element when certain test succeed or fails (se
 
 Adds `show-for-TEST` and `hide-for-TEST` the following [Modernizr] tests (`TEST`) 
  
-	fullscreen, localstorage, sessionstorage
+	fullscreen
 
 ### options
 
@@ -144,7 +159,19 @@ A full list of added [Modernizr] tests can be seen at [the demo page](http://FCO
 
 A full list of **available** [Modernizr] tests can be seen [here](http://FCOO.github.io/fcoo-modernizr-mediaquery-device/demo/list.html)
 
+## Extra Modernizr test
 
+`https` - A test to check if the protocol is `https:\\` or not is added.
+
+## CSS Classes `show-for-TEST`, `hide-for-TEST`, `show-for-no-TEST`, `hide-for-no-TEST`
+
+All the above tests results in the following available list of css-classes to show or hide elements: `show-for-TEST` and `hide-for-TEST`
+ 
+    https
+	fullscreen
+    ie9 
+    ie10 
+    ie11
 
 
 ## Copyright and License
@@ -154,7 +181,7 @@ Copyright (c) 2016 [FCOO](https://github.com/FCOO)
 
 ## Contact information
 
-Niels Holt nho@fcoo.dk
+[Niels Holt](http://github.com/NielsHolt)
 
 
 

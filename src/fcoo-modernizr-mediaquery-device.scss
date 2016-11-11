@@ -1,10 +1,10 @@
 /***********************************************
-	fcoo-modernizr-mediaquery-device.scss, 
+    fcoo-modernizr-mediaquery-device.scss, 
 
-	(c) 2016, FCOO
+    (c) 2016, FCOO
 
-	https://github.com/FCOO/fcoo-modernizr-mediaquery-device
-	https://github.com/FCOO
+    https://github.com/FCOO/fcoo-modernizr-mediaquery-device
+    https://github.com/FCOO
 
 
 ************************************************/
@@ -29,12 +29,11 @@
 //default = desktop, mobile, phone, tablet, windows, ios, android, ie7, ie8, ie9, ie10, ie11, mobilegradea
 
 $modernizr-device-list: 
-//	desktop, mobile, phone, tablet, 
-//	windows, ios, android, 
-//	ie7, 
-	ie8, 
-//	ie9, ie10, 
-//	mobilegradea 
+//    desktop, mobile, phone, tablet, 
+//    windows, ios, android, 
+//    ie7, ie8, 
+      ie9, ie10, ie11,
+//    mobilegradea 
 ; 
 @import "../bower_components/modernizr-device/src/modernizr-device";
 
@@ -45,26 +44,25 @@ $modernizr-device-list:
 
 
 //Adjust default options (optional)
-$html-font-size					: 16px;
+$html-font-size  : 16px;
 
-$create-FIRST-up				: false;	//When true the media query FIRST-up (allway display) and no-FIRST-up (allways hidden) are created
-$create-LAST-down				: false;	//When true the media query LAST-down (allway display) and no-LAST-down (allways hidden) are created
+$create-FIRST-up : false; //When true the media query FIRST-up (allway display) and no-FIRST-up (allways hidden) are created
+$create-LAST-down: false; //When true the media query LAST-down (allway display) and no-LAST-down (allways hidden) are created
 
 
-$mdd-display-value			: '';			// Value for display:... when element is visible. Default = '' => no class created.
-$mdd-incl-no-selector		: false;	// if true classes for 'show-for-no-TEST are included
-$mdd-incl-table-display	: false;	// if true classes for table-elements (TABLE, TR,TD etc.) are included 
+$mdd-display-value     : '';    // Value for display:... when element is visible. Default = '' => no class created.
+$mdd-incl-no-selector  : false; // if true classes for 'show-for-no-TEST are included
+$mdd-incl-table-display: false; // if true classes for table-elements (TABLE, TR,TD etc.) are included 
 
 //Set breatpoints 
 $breakpoints: (
-  mini		:    0px,	//Phone portrait
-  small		:  480px,	//Phone landscape
-  medium	:  768px,	//Tablets portrait
-  large		:  960px,	//Table landscape + desttop
-  xlarge	: 1200px	//Large desttop
+  mini  :    0px, //Phone portrait
+  small :  480px, //Phone landscape
+  medium:  768px, //Tablets portrait
+  large :  960px, //Table landscape + desttop
+  xlarge: 1200px  //Large desttop
 );
  
-
 @import "../bower_components/modernizr-mediaquery/src/modernizr-mediaquery";
 
 
@@ -72,11 +70,10 @@ $breakpoints: (
 //MODERNIZR-SCSS - https://github.com/FCOO/modernizr-scss
 
 $modernizr-test-list: (
-	fullscreen,
-	localstorage,
-	sessionstorage
+    fullscreen,
+    https
 ); 
 
 @each $modernizr-test in $modernizr-test-list {
-	@include show-and-hide-for-modernizr-test( $modernizr-test, html, false, '', false );
+    @include show-and-hide-for-modernizr-test( $modernizr-test, html, false, '', false );
 }
