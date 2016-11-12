@@ -15,13 +15,10 @@ module.exports = function(grunt) {
             default: {
                 "haveJavaScript": true,  //true if the packages have js-files
                 "haveStyleSheet": true,  //true if the packages have css and/or scss-files
-                "haveGhPages"   : true,  //true if there is a branch "gh-pages" used for demos
+                "haveGhPages"   : false, //true if there is a branch "gh-pages" used for demos
 
-	            //Cmd to be run at the start of prod-task. BUILD THE MODERNIZR
-	            "beforeProdCmd": "modernizr --config src/modernizr-config.json --dest src/fcoo-modernizr.js --metadata src/fcoo-modernizr-metadata.json",			
-
-	            //Cmd to be run at the start of dev-task. BUILD THE MODERNIZR **SAME AS beforeProdCmd**
-	            "beforeDevCmd" : "modernizr --config src/modernizr-config.json --dest src/fcoo-modernizr.js --metadata src/fcoo-modernizr-metadata.json",			
+                "beforeProdCmd": "",     //Cmd to be run at the start of prod-task. Multi cmd can be seperated by "&"
+                "beforeDevCmd" : "",     //Cmd to be run at the start of dev-task
 
                 "afterProdCmd" : "",     //Cmd to be run at the end of prod-task
                 "afterDevCmd"  : "",     //Cmd to be run at the end of dev-task
