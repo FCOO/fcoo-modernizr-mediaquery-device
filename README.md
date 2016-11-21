@@ -27,7 +27,7 @@ All JavaScript objects are create in the name space `window.fcoo`
 ## [fcoo-modernizr]
 The [Modernizr] tests used are defined in [fcoo-modernizr]
 
-For consistency th Modernizr is 'create' in window.fcoo
+For consistency the Modernizr is 'create' in window.fcoo
 
         window.fcoo..modernizr = Modernizr;
 

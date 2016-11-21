@@ -9,51 +9,6 @@
 
 ************************************************/
 /***********************************************
-    modernizr-device.scss, 
-
-    (c) 2015, FCOO
-
-    https://github.com/FCOO/modernizr-device
-    https://github.com/FCOO
-
-************************************************/
-.ie9 .hide-for-ie9 {
-  display: none !important; }
-
-.ie9 .show-for-no-ie9 {
-  display: none !important; }
-
-.no-ie9 .show-for-ie9 {
-  display: none !important; }
-
-.no-ie9 .hide-for-no-ie9 {
-  display: none !important; }
-
-.ie10 .hide-for-ie10 {
-  display: none !important; }
-
-.ie10 .show-for-no-ie10 {
-  display: none !important; }
-
-.no-ie10 .show-for-ie10 {
-  display: none !important; }
-
-.no-ie10 .hide-for-no-ie10 {
-  display: none !important; }
-
-.ie11 .hide-for-ie11 {
-  display: none !important; }
-
-.ie11 .show-for-no-ie11 {
-  display: none !important; }
-
-.no-ie11 .show-for-ie11 {
-  display: none !important; }
-
-.no-ie11 .hide-for-no-ie11 {
-  display: none !important; }
-
-/***********************************************
     modernizr-mediaquery.scss, 
 
     (c) 2015, FCOO

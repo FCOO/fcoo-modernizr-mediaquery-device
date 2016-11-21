@@ -22,7 +22,14 @@
     $(function() { 
 
         //Create fcoo.modernizrDevice
-        ns.modernizrDevice = new window.ModernizrDevice();
+        ns.modernizrDevice = new window.ModernizrDevice({
+            scale: false,
+            modernizr: {
+                device: false,
+                os    : true,
+                ie    : false
+            }
+        });
 
         //Create fcoo.modernizrMediaquery
         ns.modernizrMediaquery = new window.ModernizrMediaquery();
