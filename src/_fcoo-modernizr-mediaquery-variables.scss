@@ -1,0 +1,37 @@
+/***********************************************
+    _fcoo-modernizr-mediaquery-variables.scss, 
+
+    (c) 2016, FCOO
+
+    https://github.com/FCOO/fcoo-modernizr-mediaquery-device
+    https://github.com/FCOO
+
+************************************************/
+
+
+//************************************************************
+//MODERNIZR-MEDIAQUERY - http://github.com/FCOO/modernizr-mediaquery
+
+//Adjust default options (optional)
+$html-font-size  : 16px;
+
+$create-FIRST-up : false; //When true the media query FIRST-up (allway display) and no-FIRST-up (allways hidden) are created
+$create-LAST-down: false; //When true the media query LAST-down (allway display) and no-LAST-down (allways hidden) are created
+
+
+$mdd-display-value     : '';    // Value for display:... when element is visible. Default = '' => no class created.
+$mdd-incl-no-selector  : false; // if true classes for 'show-for-no-TEST are included
+$mdd-incl-table-display: false; // if true classes for table-elements (TABLE, TR,TD etc.) are included 
+
+//Set breatpoints 
+$breakpoints: (
+  mini  :    0px, //Phone portrait
+  small :  480px, //Phone landscape
+  medium:  768px, //Tablets portrait
+  large :  960px, //Table landscape + desttop
+  xlarge: 1200px  //Large desttop
+);
+ 
+
+
+
