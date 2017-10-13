@@ -25,12 +25,13 @@ $mdd-incl-table-display: false; // if true classes for table-elements (TABLE, TR
 
 //Set breatpoints - adjusted to Bootstrap 4
 $breakpoints: (
-  mini  :    0px, //Small phone portrait
-  xsmall:  320px, //Small phone landscape
-  small :  576px, //Small devices
-  medium:  768px, //Tablets portrait
-  large :  992px, //Table landscape + desttop
-  xlarge: 1200px  //Large desttop
+  mini       :    0px, //Smaller than small phone portrait (< 320)
+  xsmall-port:  320px, //Small phone portrait (320-479)
+  xsmall-land:  480px, //Small phone landscape (480-576)
+  small      :  576px, //Small devices
+  medium     :  768px, //Tablets portrait
+  large      :  992px, //Table landscape + desttop
+  xlarge     : 1200px  //Large desttop
 );
  
 

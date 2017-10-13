@@ -74,8 +74,10 @@ Sets the breakpoints as:
 
 | Class | Window width | Screen |
 | :--: | :--: | :---- |
-| mini | <b>0</b>-479px | Phone portrait |
-| small | <b>480</b>-767px | Phone landscape |
+| mini | <b>0</b>-319px | Smaller than small phone portrait |
+| xsmall-port | <b>320</b>-479px | Small phone portrait |
+| xsmall-land | <b>480</b>-575px | Small phone landscape |
+| small | <b>576</b>-767px | Small devices |
 | medium | <b>768</b>-959px | Tablet portrait |
 | large | <b>960</b>-1199px | Tablet landscape and desktop | 
 | xlarge | <b>>=1200px</b> | Large desktop
