@@ -23,12 +23,13 @@ $mdd-display-value     : '';    // Value for display:... when element is visible
 $mdd-incl-no-selector  : false; // if true classes for 'show-for-no-TEST are included
 $mdd-incl-table-display: false; // if true classes for table-elements (TABLE, TR,TD etc.) are included 
 
-//Set breatpoints 
+//Set breatpoints - adjusted to Bootstrap 4
 $breakpoints: (
-  mini  :    0px, //Phone portrait
-  small :  480px, //Phone landscape
+  mini  :    0px, //Small phone portrait
+  xsmall:  480px, //Small phone landscape
+  small :  576px, //Small devices
   medium:  768px, //Tablets portrait
-  large :  960px, //Table landscape + desttop
+  large :  992px, //Table landscape + desttop
   xlarge: 1200px  //Large desttop
 );
  
