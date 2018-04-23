@@ -19,7 +19,7 @@
     /******************************************
     Initialize/ready
     *******************************************/
-    $(function() { 
+    $(function() {
 
         //Create fcoo.modernizrDevice
         ns.modernizrDevice = new window.ModernizrDevice({
@@ -27,7 +27,7 @@
             modernizr: {
                 device: false,
                 os    : true,
-                ie    : false
+                ie    : true
             }
         });
 

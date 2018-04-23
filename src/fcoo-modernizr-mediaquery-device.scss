@@ -1,5 +1,5 @@
 /***********************************************
-    fcoo-modernizr-mediaquery-device.scss, 
+    fcoo-modernizr-mediaquery-device.scss,
 
     (c) 2016, FCOO
 
@@ -9,7 +9,7 @@
 
 ************************************************/
 //BOURBON - http://bourbon.io/
-@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
+@import "../bower_components/bourbon/core/bourbon";
 
 //MODERNIZR-MIXIN - https://github.com/danielguillan/modernizr-mixin
 @import "../bower_components/modernizr-mixin/stylesheets/modernizr";
@@ -36,7 +36,7 @@
 $modernizr-test-list: (
     fullscreen,
     https
-); 
+);
 
 @each $modernizr-test in $modernizr-test-list {
     @include show-and-hide-for-modernizr-test( $modernizr-test, html, false, '', false );
