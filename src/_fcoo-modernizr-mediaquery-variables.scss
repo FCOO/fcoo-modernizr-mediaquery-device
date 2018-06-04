@@ -1,5 +1,5 @@
 /***********************************************
-    _fcoo-modernizr-mediaquery-variables.scss, 
+    _fcoo-modernizr-mediaquery-variables.scss,
 
     (c) 2016, FCOO
 
@@ -21,7 +21,7 @@ $create-LAST-down: false; //When true the media query LAST-down (allway display)
 
 $mdd-display-value     : '';    // Value for display:... when element is visible. Default = '' => no class created.
 $mdd-incl-no-selector  : false; // if true classes for 'show-for-no-TEST are included
-$mdd-incl-table-display: false; // if true classes for table-elements (TABLE, TR,TD etc.) are included 
+$mdd-incl-table-display: false; // if true classes for table-elements (TABLE, TR,TD etc.) are included
 
 //Set breatpoints - adjusted to Bootstrap 4
 $breakpoints: (
@@ -33,7 +33,12 @@ $breakpoints: (
   large      :  992px, //Table landscape + desttop
   xlarge     : 1200px  //Large desttop
 );
- 
+
+//NOTE: The following scss-variables MUST match the values in modernizrMediaqueryOptions in src/fcoo-modernizr-mediaquery-device.js
+// $html-font-size   = modernizrMediaqueryOptions.htmlFontSize
+// $create-FIRST-up  = modernizrMediaqueryOptions.createFIRSTup
+// $create-LAST-down = modernizrMediaqueryOptions.createLASTdown
+// $breakpoints      = modernizrMediaqueryOptions.breakpoints
 
 
 

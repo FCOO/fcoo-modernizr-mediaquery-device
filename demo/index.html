@@ -10,9 +10,37 @@
 	<meta name='owner' content='FCOO'>
 
     <link  href="../src/fcoo-modernizr-mediaquery-device.css" rel="stylesheet">
+    <style>
+        .green { background-color: green; }
+        .red { background-color: red; }
+    </style>
 </head>
 
 <body>
+    <div class="show-for-landscape">LANDSCAPE mode. <code>class="show-for-landscape"</code></div>
+    <div class="show-for-portrait">PORTRAIT mode. <code>class="show-for-portrait"</code></div>
+
+    <div class="show-for-mini green">The screen IS a MINI screen. <code>class="show-for-mini"</code></div>
+    <div class="hide-for-mini red">The screen is NOT a MINI screen. <code>class="hide-for-mini"</code></div>
+
+    <div class="show-for-xsmall-port green">The screen IS a XSMALL-PORT screen. <code>class="show-for-xsmall-port"</code></div>
+    <div class="hide-for-xsmall-port red">The screen is NOT a XSMALL-PORT screen. <code>class="hide-for-xsmall-port"</code></div>
+
+    <div class="show-for-xsmall-land green">The screen IS a XSMALL-LAND screen. <code>class="show-for-xsmall-land"</code></div>
+    <div class="hide-for-xsmall-land red">The screen is NOT a XSMALL-LAND screen. <code>class="hide-for-xsmall-land"</code></div>
+
+    <div class="show-for-small green">The screen IS a SMALL screen. <code>class="show-for-small"</code></div>
+    <div class="hide-for-small red">The screen is NOT a SMALL screen. <code>class="hide-for-small"</code></div>
+
+    <div class="show-for-medium green">The screen IS a MEDIUM screen. <code>class="show-for-medium"</code></div>
+    <div class="hide-for-medium red">The screen is NOT a MEDIUM screen. <code>class="hide-for-medium"</code></div>
+
+    <div class="show-for-large green">The screen IS a LARGE screen. <code>class="show-for-large"</code></div>
+    <div class="hide-for-large red">The screen is NOT a LARGE screen. <code>class="hide-for-large"</code></div>
+
+    <div class="show-for-xlarge green">The screen IS a XLARGE screen. <code>class="show-for-xlarge"</code></div>
+    <div class="hide-for-xlarge red">The screen is NOT a XLARGE screen. <code>class="hide-for-xlarge"</code></div>
+
 	<script src="bower_components.js"></script>
 	<script src="../src/fcoo-modernizr-mediaquery-device.js"></script>
 	<script>
