@@ -32,34 +32,24 @@
             }
         };
 
-    /******************************************
-    Initialize/ready
-    *******************************************/
-    $(function() {
 
-        //Create fcoo.modernizrDevice
-        ns.modernizrDevice = new window.ModernizrDevice({
-            scale: false,
-            modernizr: {
-                device: false,
-                os    : true,
-                ie    : true
-            }
-        });
+    //Create fcoo.modernizrDevice
+    ns.modernizrDevice = new window.ModernizrDevice({
+        scale: false,
+        modernizr: {
+            device: false,
+            os    : true,
+            ie    : true
+        }
+    });
 
-        //Create fcoo.modernizrMediaquery
-        ns.modernizrMediaquery = new window.ModernizrMediaquery( modernizrMediaqueryOptions );
+    //Create fcoo.modernizrMediaquery
+    ns.modernizrMediaquery = new window.ModernizrMediaquery( modernizrMediaqueryOptions );
 
-        //For consistency: 'create' modernizr in window.fcoo
-        ns.modernizr = Modernizr;
+    //For consistency: 'create' modernizr in window.fcoo
+    ns.modernizr = Modernizr;
 
-        //Add https-test
-        ns.modernizr.addTest('https', window.location.protocol == 'https:');
-
-
-    }); //End of initialize/ready
-    //******************************************
-
-
+    //Add https-test
+    ns.modernizr.addTest('https', window.location.protocol == 'https:');
 
 }(window.Modernizr, jQuery, this, document));
