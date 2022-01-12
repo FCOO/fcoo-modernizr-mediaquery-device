@@ -39,7 +39,7 @@
         modernizr: {
             device: false,
             os    : true,
-            ie    : true
+            ie    : false
         }
     });
 
