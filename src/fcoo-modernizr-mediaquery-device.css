@@ -220,3 +220,15 @@ html.https .hide-for-https {
 
 html.no-https .show-for-https {
   display: none !important; }
+
+html.portrait .hide-for-portrait {
+  display: none !important; }
+
+html.no-portrait .show-for-portrait {
+  display: none !important; }
+
+html.landscape .hide-for-landscape {
+  display: none !important; }
+
+html.no-landscape .show-for-landscape {
+  display: none !important; }
