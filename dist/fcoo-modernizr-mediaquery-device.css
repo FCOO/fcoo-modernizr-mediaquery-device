@@ -232,3 +232,27 @@ html.landscape .hide-for-landscape {
 
 html.no-landscape .show-for-landscape {
   display: none !important; }
+
+html.desktop .hide-for-desktop {
+  display: none !important; }
+
+html.no-desktop .show-for-desktop {
+  display: none !important; }
+
+html.mobile .hide-for-mobile {
+  display: none !important; }
+
+html.no-mobile .show-for-mobile {
+  display: none !important; }
+
+html.tablet .hide-for-tablet {
+  display: none !important; }
+
+html.no-tablet .show-for-tablet {
+  display: none !important; }
+
+html.phone .hide-for-phone {
+  display: none !important; }
+
+html.no-phone .show-for-phone {
+  display: none !important; }

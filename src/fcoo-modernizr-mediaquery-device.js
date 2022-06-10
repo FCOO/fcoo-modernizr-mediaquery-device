@@ -37,7 +37,7 @@
     ns.modernizrDevice = new window.ModernizrDevice({
         scale: false,
         modernizr: {
-            device: false,
+            device: true,
             os    : true,
             ie    : false
         }

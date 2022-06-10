@@ -36,8 +36,8 @@
 $modernizr-test-list: (
     fullscreen,
     https,
-    portrait,
-    landscape
+    portrait, landscape,
+    desktop, mobile, tablet, phone
 );
 
 @each $modernizr-test in $modernizr-test-list {
