@@ -1,6 +1,6 @@
 {
   "name": "fcoo-modernizr-mediaquery-device",
-  "version": "4.4.0",
+  "version": "4.4.1",
   "homepage": "https://github.com/FCOO/fcoo-modernizr-mediaquery-device",
   "authors": [
     "Niels Holt nho@fcoo.dk"
@@ -36,5 +36,22 @@
   ],
   "moduleType": [
     "es6"
-  ]
+  ],
+  "overrides": {
+    "modernizr-javascript": {
+      "dependencies": {
+        "fcoo-modernizr": "latest"
+      }
+    },
+    "modernizr-device": {
+      "dependencies": {
+        "fcoo-modernizr": "latest"
+      }
+    },
+    "modernizr-mediaquery": {
+      "dependencies": {
+        "fcoo-modernizr": "latest"
+      }
+    }
+  }
 }
